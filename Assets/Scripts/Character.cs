@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -76,8 +77,8 @@ public class Character : MonoBehaviour
     {
         if (other.CompareTag("Stair") && rb.velocity.z > 0)
         {
-
-            if(this.colorType == other.gameObject.GetComponent<Stait>().colorType)
+            stage.checkColorPlayerFromStart = true;
+            if (this.colorType == other.gameObject.GetComponent<Stait>().colorType)
             {
                 other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
             }
@@ -87,8 +88,7 @@ public class Character : MonoBehaviour
                 if (bricks.Count != 0)
                 {
                     //activeBrickWhenRemove = true;
-                    stage.checkColorPlayerFromStart = true;
-                    Debug.Log(other.gameObject.name);
+                    
                     
                     other.gameObject.GetComponent<Stait>().colorType = this.colorType;
                     other.gameObject.GetComponent<MeshRenderer>().material = meshRen.material;
@@ -99,11 +99,11 @@ public class Character : MonoBehaviour
                     bricks.Remove(bricks[bricks.Count - 1]);
                     brickChild.GetChild(brickChild.childCount-1).gameObject.SetActive(false);
                     brickChild.GetChild(brickChild.childCount - 1).SetParent(null);
+                    stage.SetCharacter(transform.GetComponent<Character>());
                 }
                 else
                 {
                     //activeBrickWhenRemove = false;
-                    stage.checkColorPlayerFromStart = true;
                     other.gameObject.GetComponent<Stait>().wallStait.SetActive(true);
                 }
             }

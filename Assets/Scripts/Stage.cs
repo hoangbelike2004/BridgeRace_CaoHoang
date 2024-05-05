@@ -86,7 +86,8 @@ public class Stage : MonoBehaviour
         SetBrick();
         while (true)
         {
-            if(character != null )
+            Debug.Log(checkColorPlayerFromStart);
+            if (character != null)
             {
                 for (int i = 0; i < bricks.Count; i++)
                 {
@@ -97,18 +98,20 @@ public class Stage : MonoBehaviour
                 }
                 character = null;
             }    
-            else if (checkColorPlayerFromStart)
+            else if (checkColorPlayerFromStart && character!= null)
             {
-                Debug.Log(checkColorPlayerFromStart);
-                for (int i = 3; i < bricks.Count; i++) {
+                
+                for (int i = 0; i < bricks.Count; i++) {
 
-                    if (character.GetComponent<Player>().colorType == BrickStage.transform.GetChild(i).GetComponent<Brick>().colorType) {
+                    if (character.GetComponent<Player>().colorType == transform.GetChild(i).GetComponent<Brick>().colorType && BrickStage.transform.GetChild(i).gameObject.activeSelf==false) {
                         BrickStage.transform.GetChild(i).gameObject.SetActive(true);
                     }
                 }
                 //Debug.Log(1);
+                character = null;
+                checkColorPlayerFromStart = false;
             }
-            
+            Debug.Log(1);
             yield return null;
             //}
         }

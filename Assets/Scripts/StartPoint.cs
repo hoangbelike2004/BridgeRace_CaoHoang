@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class StartPoint : MonoBehaviour
 {
@@ -18,7 +19,10 @@ public class StartPoint : MonoBehaviour
             valueColorPlayerFromStart =  (int)other.gameObject.GetComponent<Player>().colorType;
             //_ActiveBrickEvent?.Invoke(valueColorPlayerFromStart);
             stage.SetCharacter(other.GetComponent<Character>());
-            others.Add(other.gameObject);
+            stage.SetStage(transform.GetComponent<Stage>());
+            transform.gameObject.SetActive(false);
+            //others.Add(other.gameObject);
+
         }
     }
 }
