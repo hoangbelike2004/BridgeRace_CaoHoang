@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] private Renderer meshRen;
     [SerializeField] protected float moveSpeed;
+    [SerializeField] protected VariableJoystick _fxJoystick;
     [SerializeField] protected Rigidbody rb;
     [SerializeField] private GameObject brick;
     [SerializeField] private Transform brickChild;
@@ -75,37 +76,51 @@ public class Character : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("BridgeBox"))
+        {
+            
+            stage.checkColorPlayerFromStart = true;
+        }
+
         if (other.CompareTag("Stair") && rb.velocity.z > 0)
         {
-            stage.checkColorPlayerFromStart = true;
+            
+            
+
             if (this.colorType == other.gameObject.GetComponent<Stait>().colorType)
             {
                 other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
             }
-            else if(this.colorType != other.gameObject.GetComponent<Stait>().colorType)//!= colorType
+            else if(colorType != other.gameObject.GetComponent<Stait>().colorType)//!= colorType
             {
+                
                
-                if (bricks.Count != 0)
+               other.gameObject.GetComponent<Stait>().wallStait.SetActive(true);
+                if (bricks.Count != 0)//when remove brick
                 {
                     //activeBrickWhenRemove = true;
-                    
-                    
+                    int brickcount = bricks.Count;
                     other.gameObject.GetComponent<Stait>().colorType = this.colorType;
-                    other.gameObject.GetComponent<MeshRenderer>().material = meshRen.material;
+                    other.gameObject.GetComponent<Stait>().meshRen.material = meshRen.material;
                     
                     other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
                     isbridge = false;
-                    other.gameObject.tag = "Untagged";
+                   // other.gameObject.tag = "Untagged";
                     bricks.Remove(bricks[bricks.Count - 1]);
                     brickChild.GetChild(brickChild.childCount-1).gameObject.SetActive(false);
                     brickChild.GetChild(brickChild.childCount - 1).SetParent(null);
+
                     stage.SetCharacter(transform.GetComponent<Character>());
+
+                    //stage.SetCharacter(transform.GetComponent<Character>());
+
                 }
-                else
-                {
-                    //activeBrickWhenRemove = false;
-                    other.gameObject.GetComponent<Stait>().wallStait.SetActive(true);
-                }
+               
+                //else
+                //{
+                //    //activeBrickWhenRemove = false;
+                //    other.gameObject.GetComponent<Stait>().wallStait.SetActive(true);
+                //}
             }
             //if(bricks.Count != 0|| this.colorType == other.gameObject.GetComponent<Stait>().colorType)
             //{
@@ -139,9 +154,11 @@ public class Character : MonoBehaviour
             //srb.AddForce(Vector3.up * 50f, ForceMode.Force);
 
         }
-        else if (other.CompareTag("Stair") && rb.velocity.z < 0)
+        else if (other.CompareTag("Stair")&&_fxJoystick.Vertical<0)
         {
-            //Debug.Log("xuong");
+            
+            
+           
             Vector3 newpos = transform.position;
             //Debug.Log("len");
 
@@ -200,6 +217,7 @@ public class Character : MonoBehaviour
         if (other.CompareTag("Stair") && rb.velocity.z > 0)
         {
             other.gameObject.tag = "Stair";
+            other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
 
         }
     }

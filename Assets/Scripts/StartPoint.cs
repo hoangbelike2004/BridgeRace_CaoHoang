@@ -21,6 +21,7 @@ public class StartPoint : MonoBehaviour
             stage.SetCharacter(other.GetComponent<Character>());
             stage.SetStage(transform.GetComponent<Stage>());
             transform.gameObject.SetActive(false);
+            stage.isStart = true;
             //others.Add(other.gameObject);
 
         }

@@ -8,7 +8,7 @@ public class Player : Character
 {
     [SerializeField] private float maxSlopeAngle;
     private RaycastHit slopehit;
-    [SerializeField] private VariableJoystick _fxJoystick;
+    
     [SerializeField] private GameObject _canvasJoystick;
     private Touch _touch;
     Vector3 savePosJoyStick,direction;

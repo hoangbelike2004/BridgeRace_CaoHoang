@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage : MonoBehaviour
+public class Stage : CharacterBrick
 {
     [SerializeField] GameObject brick;
     [SerializeField] List<GameObject> bricks;
@@ -15,6 +15,7 @@ public class Stage : MonoBehaviour
     [SerializeField] Character character;
     [SerializeField] Stage stage;
     [SerializeField] private GameObject BrickStage;
+    public bool isStart;
 
     public void SetCharacter(Character character)
     {
@@ -87,7 +88,7 @@ public class Stage : MonoBehaviour
         while (true)
         {
             Debug.Log(checkColorPlayerFromStart);
-            if (character != null)
+            if (character != null&&isStart)
             {
                 for (int i = 0; i < bricks.Count; i++)
                 {
@@ -97,21 +98,34 @@ public class Stage : MonoBehaviour
                     }
                 }
                 character = null;
-            }    
+                isStart = false;
+            }
             else if (checkColorPlayerFromStart && character!= null)
             {
-                
-                for (int i = 0; i < bricks.Count; i++) {
+                Debug.Log(1);
+                        int colorindex = (int)character.GetComponent<Character>().colorType;
+                        int valuesBricks = Random.Range(0, bricks.Count - 1);
+                        bricks[valuesBricks].GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
+                        bricks[valuesBricks].GetComponent<Brick>().colorType = (ColorType)colorindex;
+                    
+                   
 
-                    if (character.GetComponent<Player>().colorType == transform.GetChild(i).GetComponent<Brick>().colorType && BrickStage.transform.GetChild(i).gameObject.activeSelf==false) {
+                
+                for (int i = 3; i < bricks.Count; i++) {
+
+                    if (character.GetComponent<Character>().colorType == transform.GetChild(i).GetComponent<Brick>().colorType && BrickStage.transform.GetChild(i).gameObject.activeSelf==false) {
                         BrickStage.transform.GetChild(i).gameObject.SetActive(true);
                     }
+                    else if (character.GetComponent<Character>().colorType != transform.GetChild(i).GetComponent<Brick>().colorType)
+                    {
+                        BrickStage.transform.GetChild(i).gameObject.SetActive(false);
+                    }
                 }
-                //Debug.Log(1);
+                
                 character = null;
-                checkColorPlayerFromStart = false;
+                //checkColorPlayerFromStart = false;
             }
-            Debug.Log(1);
+            //Debug.Log(1);
             yield return null;
             //}
         }

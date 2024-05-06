@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0acebc93fc89cef4aab589d8d6c4882d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colordata: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
-  meshRen: {fileID: 2619568526811438561}
   colorType: 0
+  meshRen: {fileID: 2619568526811438561}
+  colordata: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
   timeActive: 6
