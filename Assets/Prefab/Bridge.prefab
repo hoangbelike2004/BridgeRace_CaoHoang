@@ -464,9 +464,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5588706696160893163}
     m_Modifications:
+    - target: {fileID: 123067099540209061, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 339418969163919844, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 339418969163919844, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 390988702457892957, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 449273419220752041, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen
@@ -476,6 +488,10 @@ PrefabInstance:
       propertyPath: colordata
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
+    - target: {fileID: 599862707787839707, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 635406020368811558, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -509,12 +525,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
     - target: {fileID: 945036790888541335, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 945036790888541335, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
       objectReference: {fileID: 0}
     - target: {fileID: 1090216271596871270, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1090216271596871270, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118817463848270349, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1221693522752703022, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 1329534703952175228, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen
@@ -524,6 +556,10 @@ PrefabInstance:
       propertyPath: colordata
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
+    - target: {fileID: 1464757171652263244, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1464757171652263244, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
@@ -544,6 +580,18 @@ PrefabInstance:
       propertyPath: colordata
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
+    - target: {fileID: 1876188846667886873, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876770751375587148, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939922790825246563, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1973533521803840551, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen
       value: 
@@ -552,6 +600,10 @@ PrefabInstance:
       propertyPath: colordata
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
+    - target: {fileID: 2064639333934429634, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2064639333934429634, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
@@ -565,6 +617,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
     - target: {fileID: 2228671779447761664, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228671779447761664, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
       objectReference: {fileID: 0}
@@ -577,20 +633,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
     - target: {fileID: 2429660280933374757, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429660280933374757, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
       objectReference: {fileID: 0}
     - target: {fileID: 2452112580001936002, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2452112580001936002, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587849508537052328, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596596600193928167, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2596596600193928167, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
       objectReference: {fileID: 0}
     - target: {fileID: 2613719005406017143, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2613719005406017143, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643016618018428148, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2703762599552941610, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen
@@ -601,20 +681,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
     - target: {fileID: 2763117032933913413, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763117032933913413, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831963461125689685, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2959105990587597064, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2959105990587597064, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000890188764861943, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166582651466475825, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220839058049874263, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249732661604581327, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3249732661604581327, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
       objectReference: {fileID: 0}
     - target: {fileID: 3251089446503666878, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251089446503666878, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314488287351711891, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3608112512990127263, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen
@@ -624,6 +740,10 @@ PrefabInstance:
       propertyPath: colordata
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
+    - target: {fileID: 3639016836815235319, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3639016836815235319, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
@@ -637,8 +757,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
     - target: {fileID: 3804039586977916555, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3804039586977916555, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890951722179435568, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3890951722179435568, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
@@ -709,28 +837,68 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
     - target: {fileID: 4287994254627965621, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4287994254627965621, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291798278510135860, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460468174188876381, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514721805763753708, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4514721805763753708, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
       objectReference: {fileID: 0}
     - target: {fileID: 4597354358150055959, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597354358150055959, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804872129153534471, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4804872129153534471, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
       objectReference: {fileID: 0}
+    - target: {fileID: 4833262878921004662, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5102275008521278370, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_Name
       value: Stair
       objectReference: {fileID: 0}
+    - target: {fileID: 5144494383637980742, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176166694694112829, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5176166694694112829, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181230792754423212, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5298593746480646864, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen
@@ -753,8 +921,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
     - target: {fileID: 5626849678770022514, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626849678770022514, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965707743465012195, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6249832993917089298, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263142122246081565, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6346029930077434980, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen
@@ -764,6 +948,14 @@ PrefabInstance:
       propertyPath: colordata
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
+    - target: {fileID: 6569553233637757629, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6656546412958673753, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6656546412958673753, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
@@ -785,6 +977,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
     - target: {fileID: 6792430846838954418, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6792430846838954418, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
       objectReference: {fileID: 0}
@@ -796,6 +992,10 @@ PrefabInstance:
       propertyPath: colordata
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
+    - target: {fileID: 7357286356819678101, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7386750450999192570, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen
       value: 
@@ -804,6 +1004,14 @@ PrefabInstance:
       propertyPath: colordata
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
+    - target: {fileID: 7571751082213016044, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677193366474387610, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7677193366474387610, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
@@ -824,6 +1032,10 @@ PrefabInstance:
       propertyPath: colordata
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
+    - target: {fileID: 8134881507377672714, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8219057757253087284, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen
       value: 
@@ -833,8 +1045,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
     - target: {fileID: 8270250889049701212, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270250889049701212, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359152200510456454, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8407204015813843818, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen
@@ -844,6 +1064,10 @@ PrefabInstance:
       propertyPath: colordata
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
+    - target: {fileID: 8431564436654288055, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8431564436654288055, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
@@ -865,16 +1089,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
     - target: {fileID: 8483732465490499642, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483732465490499642, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704664646894721738, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8776764988540124961, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8776764988540124961, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
       objectReference: {fileID: 0}
+    - target: {fileID: 8868955322463744907, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8899016189164394052, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925063146790464241, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8925063146790464241, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959498504359656726, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_Size.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8984808253755941377, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen
@@ -885,6 +1137,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
     - target: {fileID: 8986464053164577033, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986464053164577033, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_TagString
       value: WallBridge
       objectReference: {fileID: 0}
@@ -894,7 +1150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9133688606506869400, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: m_Size.z
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 9174362614177369499, guid: 3a7da17dc1052ea468642603c76c432a, type: 3}
       propertyPath: meshRen

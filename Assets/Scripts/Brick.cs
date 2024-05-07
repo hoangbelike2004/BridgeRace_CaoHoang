@@ -10,7 +10,7 @@ public class Brick : CharacterBrick
     private bool isDiactive;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player"&& this.colorType == other.gameObject.GetComponent<Player>().colorType)
+        if(other.gameObject.tag == "Player"&& this.colorType == other.gameObject.GetComponent<Character>().colorType)
         {
             transform.gameObject.SetActive(false);
             int colorindex = Random.Range(0, colordata.materials.Length - 1);
@@ -34,10 +34,10 @@ public class Brick : CharacterBrick
     {
         //Debug.Log(colordata.materials.Length);
         isDiactive = false;
-        int colorindex = Random.Range(0, colordata.materials.Length-1);
+        int colorindex = Random.Range(0, colordata.materials.Length - 1);
         meshRen.material = colordata.materials[colorindex];
         colorType = (ColorType)colorindex;
- 
+
     }
     //void ActiveBrick()
     //{
@@ -49,7 +49,7 @@ public class Brick : CharacterBrick
     //    //this.colorType = (ColorType)colorindex;
     //    transform.gameObject.SetActive(true);
     //    isDiactive = false;
-        
+
     //}
-    
+
 }

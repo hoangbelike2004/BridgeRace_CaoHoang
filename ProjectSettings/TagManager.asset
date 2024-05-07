@@ -12,6 +12,7 @@ TagManager:
   - Start
   - WallBridge
   - BridgeBox
+  - Stage
   layers:
   - Default
   - TransparentFX

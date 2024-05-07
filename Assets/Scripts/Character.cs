@@ -12,18 +12,18 @@ public class Character : MonoBehaviour
     [SerializeField] protected VariableJoystick _fxJoystick;
     [SerializeField] protected Rigidbody rb;
     [SerializeField] private GameObject brick;
-    [SerializeField] private Transform brickChild;
+    [SerializeField] protected Transform brickChild;
     private float heightBrick = 0.42f;
     [SerializeField] private List<GameObject> bricks;
     protected RaycastHit hit;
     [SerializeField] protected LayerMask _layerBrick;
-    public Transform _transformBricks;
+    //public Transform _transformBricks;
     public ColorType colorType;
     protected bool isbridge;
     public Stage stage;
     //public bool activeBrickWhenRemove = false;
     [SerializeField] private float timeActive;
-    private bool isDiactive;
+    //private bool isDiactive;
     public enum animationState
     {
         idle,
@@ -35,6 +35,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         isbridge = true;
+        OnInit();
     }
     protected virtual void OnInit()
     {
@@ -58,10 +59,7 @@ public class Character : MonoBehaviour
 
     protected virtual void AddBrick()
     {
-        
-        
-            Debug.Log("add brick");
-        
+            Debug.Log("add brick");   
     }
 
     public void RemoveBrick()
@@ -76,6 +74,12 @@ public class Character : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Stage"))
+        {
+            stage.SetStage(other.GetComponent<Stage>());
+            //Debug.Log(other.gameObject.name);
+        }
+
         if (other.CompareTag("BridgeBox"))
         {
             
@@ -111,6 +115,7 @@ public class Character : MonoBehaviour
                     brickChild.GetChild(brickChild.childCount - 1).SetParent(null);
 
                     stage.SetCharacter(transform.GetComponent<Character>());
+                    Debug.Log(1);
 
                     //stage.SetCharacter(transform.GetComponent<Character>());
 
@@ -147,7 +152,7 @@ public class Character : MonoBehaviour
             //Debug.Log("len");
 
 
-            //newpos.y += 0.15f;
+            newpos.y += 0.15f;
 
             transform.position = newpos;
 
@@ -177,14 +182,14 @@ public class Character : MonoBehaviour
                
                 brickPrefab.GetComponent<MeshRenderer>().material = this.meshRen.material;
                 bricks.Add(brickPrefab);
-                brickPrefab.transform.SetParent(_transformBricks);
+                brickPrefab.transform.SetParent(brickChild);
                 brickPrefab.transform.localPosition = new Vector3(0, 1 + heightBrick * bricks.Count,-.6f);
                 brickPrefab.transform.localRotation = Quaternion.Euler(0,-90,0);
                 
             }
             
         }
-
+        
 
 
         //if (other.gameObject.tag == "Brick" && this.colorType == other.gameObject.GetComponent<Brick>().colorType)
@@ -200,24 +205,26 @@ public class Character : MonoBehaviour
 
     }
 
-    IEnumerator ActiveBrick(GameObject gameobject)
-    {
-        yield return new WaitForSeconds(timeActive);
-        //Debug.Log(isDiactive);
-        //yield return new WaitForSeconds(timeActive);
-        int colorindex = Random.Range(1, colordata.materials.Length - 1);
-        gameobject.GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
-        colorType = (ColorType)colorindex;
-        gameobject.SetActive(true);
-        isDiactive = false;
+    //IEnumerator ActiveBrick(GameObject gameobject)
+    //{
+    //    yield return new WaitForSeconds(timeActive);
+    //    //Debug.Log(isDiactive);
+    //    //yield return new WaitForSeconds(timeActive);
+    //    int colorindex = Random.Range(1, colordata.materials.Length - 1);
+    //    gameobject.GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
+    //    colorType = (ColorType)colorindex;
+    //    gameobject.SetActive(true);
+    //    isDiactive = false;
 
-    }
+    //}
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Stair") && rb.velocity.z > 0)
+        if (other.CompareTag("Stair") && _fxJoystick.Vertical < 0)
         {
-            other.gameObject.tag = "Stair";
+            ///other.gameObject.tag = "Stair";
+            //Debug.Log("chay xuong deactive wall");
             other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
+
 
         }
     }

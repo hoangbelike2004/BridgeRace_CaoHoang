@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class Stage : CharacterBrick
 {
@@ -12,17 +14,41 @@ public class Stage : CharacterBrick
     [SerializeField] int valueInstantiazX;
     [SerializeField] StartPoint StartPoi;
     public bool checkColorPlayerFromStart = false;
-    [SerializeField] Character character;
+    [SerializeField] List<Character> characters = new List<Character>(6);
     [SerializeField] Stage stage;
-    [SerializeField] private GameObject BrickStage;
+    //[SerializeField] private GameObject BrickStage;
     public bool isStart;
 
     public void SetCharacter(Character character)
     {
-        this.character = character;
+        //this.character = character;
+
+        bool isCharacter = true;
+        for (int i = 0; i < characters.Count; i++) {
+            if (characters[i] == character) {
+                isCharacter = false;
+                break;
+            }    
+        }
+        //Debug.Log(isCharacter);
+        if (isCharacter) {
+            for (int i = 0; i < characters.Count; i++)
+            {
+                if (characters[i] == null)
+                {
+                    characters[i] = character;
+                    //Debug.Log("chay");
+                    break;
+                }
+
+            }
+            //characters.Add(character);
+           // Debug.Log("chay");
+        }
     }
     public void SetStage(Stage stage) {
     this.stage = stage;
+        Debug.Log(1);
     }
     //public StartPoint startPoint;
 
@@ -87,53 +113,81 @@ public class Stage : CharacterBrick
         SetBrick();
         while (true)
         {
-            Debug.Log(checkColorPlayerFromStart);
-            if (character != null&&isStart)
-            {
-                for (int i = 0; i < bricks.Count; i++)
+            
+            if (characters != null) {
+                for (int c = 0; c < characters.Count; c++)
                 {
-                    if (character.GetComponent<Player>().colorType == bricks[i].GetComponent<Brick>().colorType)
+                    //Debug.Log(characters[c].gameObject.name);
+                    //Debug.Log(checkColorPlayerFromStart);
+                    if (characters[c] != null && isStart&&stage!= null)
                     {
-                        bricks[i].SetActive(true);
+                        for (int i = 0; i <bricks.Count; i++)
+                        {
+                            if (characters[c].GetComponent<Character>().colorType == stage.bricks[i].GetComponent<Brick>().colorType)
+                            {
+                                stage.bricks[i].gameObject.SetActive(true);
+                            }
+                        }
+                        characters[c] = null;
+                        isStart = false;
+                       
+
                     }
+                    //Debug.Log(1);
+
+                    //}
                 }
-                character = null;
-                isStart = false;
-            }
-            else if (checkColorPlayerFromStart && character!= null)
-            {
-                Debug.Log(1);
-                        int colorindex = (int)character.GetComponent<Character>().colorType;
+
+                for (int c = 0; c < characters.Count; c++)
+                {
+                    if (checkColorPlayerFromStart && characters[c] != null)
+                    {
+                        Debug.Log(1);
+                        int colorindex = (int)characters[c].GetComponent<Character>().colorType;
                         int valuesBricks = Random.Range(0, bricks.Count - 1);
-                        bricks[valuesBricks].GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
-                        bricks[valuesBricks].GetComponent<Brick>().colorType = (ColorType)colorindex;
+                        if (stage.transform.GetChild(valuesBricks+3).gameObject.activeSelf == false)
+                        {
+                            
+                            bricks[valuesBricks].GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
+                            bricks[valuesBricks].GetComponent<Brick>().colorType = (ColorType)colorindex;
+                        }
+
+
+
+
+
+                        for (int i = 3; i < bricks.Count; i++)
+                        {
+
+                            if (characters[c].GetComponent<Character>().colorType == transform.GetChild(i).GetComponent<Brick>().colorType && stage.transform.GetChild(i).gameObject.activeSelf == false)
+                            {
+                                stage.transform.GetChild(i).gameObject.SetActive(true);
+                            }
+                            else if (characters[c].GetComponent<Character>().colorType != transform.GetChild(i).GetComponent<Brick>().colorType)
+                            {
+                                stage.transform.GetChild(i).gameObject.SetActive(false);
+                            }
+                        }
+
+                        characters[c] = null;
+                        //checkColorPlayerFromStart = false;
+                    }
+                    //Debug.Log(characters.Count);
                     
-                   
-
-                
-                for (int i = 3; i < bricks.Count; i++) {
-
-                    if (character.GetComponent<Character>().colorType == transform.GetChild(i).GetComponent<Brick>().colorType && BrickStage.transform.GetChild(i).gameObject.activeSelf==false) {
-                        BrickStage.transform.GetChild(i).gameObject.SetActive(true);
-                    }
-                    else if (character.GetComponent<Character>().colorType != transform.GetChild(i).GetComponent<Brick>().colorType)
-                    {
-                        BrickStage.transform.GetChild(i).gameObject.SetActive(false);
-                    }
+                    
                 }
-                
-                character = null;
-                //checkColorPlayerFromStart = false;
+                    
             }
+
+
+
+
+            else { yield return null; }
+
             //Debug.Log(1);
             yield return null;
             //}
+
         }
-
-
-
-        
-
-
     }
 }

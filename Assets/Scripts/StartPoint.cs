@@ -16,14 +16,20 @@ public class StartPoint : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player")){
-            valueColorPlayerFromStart =  (int)other.gameObject.GetComponent<Player>().colorType;
-            //_ActiveBrickEvent?.Invoke(valueColorPlayerFromStart);
+            valueColorPlayerFromStart =  (int)other.gameObject.GetComponent<Character>().colorType;
+            //_ActiveBrickEvent?.Invoke(valueColorPlayerFromStart.3f);
             stage.SetCharacter(other.GetComponent<Character>());
-            stage.SetStage(transform.GetComponent<Stage>());
-            transform.gameObject.SetActive(false);
+            //Debug.Log(other.gameObject.name);
             stage.isStart = true;
+            Invoke(nameof(ActiveStartPoint), 0.3f);
+            
             //others.Add(other.gameObject);
 
         }
+    }
+
+    private void ActiveStartPoint()
+    {
+        transform.gameObject.SetActive(false);
     }
 }
