@@ -7,7 +7,8 @@ using UnityEngine.TextCore.Text;
 public class Stage : CharacterBrick
 {
     [SerializeField] GameObject brick;
-    [SerializeField] List<GameObject> bricks;
+    [SerializeField] public List<GameObject> bricks;
+    [SerializeField] public List<GameObject> bridges;
     [SerializeField] List<Vector3> ListBrickPos;
     [SerializeField] int values = 100;
     [SerializeField] int valueInstantiazZ;
@@ -15,7 +16,8 @@ public class Stage : CharacterBrick
     [SerializeField] StartPoint StartPoi;
     public bool checkColorPlayerFromStart = false;
     [SerializeField] List<Character> characters = new List<Character>(6);
-    [SerializeField] Stage stage;
+    public List<Vector3> transformsBrick;
+
     //[SerializeField] private GameObject BrickStage;
     public bool isStart;
 
@@ -83,26 +85,38 @@ public class Stage : CharacterBrick
         }
 
     }
-
-    private void ActiveBrick(int value)
+    public Vector3 GetPosBrick(ColorType colortype)
     {
-
         for (int i = 0; i < bricks.Count; i++)
         {
-            if (value == (int)bricks[i].GetComponent<Brick>().colorType)
+            if(colortype == bricks[i].GetComponent<Brick>().colorType)
             {
-                bricks[i].SetActive(true);
+                transformsBrick.Add(bricks[i].transform.position);
             }
+
         }
+        int a = Random.Range(0, transformsBrick.Count);
+        return transformsBrick[a];
     }
-    private void OnEnable()
-    {
-        StartPoint._ActiveBrickEvent += ActiveBrick;
-    }
-    private void OnDisable()
-    {
-        StartPoint._ActiveBrickEvent -= ActiveBrick;
-    }
+    //private void ActiveBrick(int value)
+    //{
+
+    //    for (int i = 0; i < bricks.Count; i++)
+    //    {
+    //        if (value == (int)bricks[i].GetComponent<Brick>().colorType)
+    //        {
+    //            bricks[i].SetActive(true);
+    //        }
+    //    }
+    //}
+    //private void OnEnable()
+    //{
+    //    StartPoint._ActiveBrickEvent += ActiveBrick;
+    //}
+    //private void OnDisable()
+    //{
+    //    StartPoint._ActiveBrickEvent -= ActiveBrick;
+    //}
     //void Start()
     //{
     //    SetBrick();
@@ -119,17 +133,17 @@ public class Stage : CharacterBrick
                 {
                     //Debug.Log(characters[c].gameObject.name);
                     //Debug.Log(checkColorPlayerFromStart);
-                    if (characters[c] != null && isStart&&stage!= null)
+                    if (characters[c] != null && isStart)
                     {
                         for (int i = 0; i <bricks.Count; i++)
                         {
-                            if (characters[c].GetComponent<Character>().colorType == stage.bricks[i].GetComponent<Brick>().colorType)
+                            if (characters[c].GetComponent<Character>().colorType == bricks[i].GetComponent<Brick>().colorType)
                             {
-                                stage.bricks[i].gameObject.SetActive(true);
+                                bricks[i].gameObject.SetActive(true);
                             }
                         }
                         characters[c] = null;
-                        isStart = false;
+                        //isStart = false;
                        
 
                     }
@@ -142,15 +156,15 @@ public class Stage : CharacterBrick
                 {
                     if (checkColorPlayerFromStart && characters[c] != null)
                     {
-                        Debug.Log(1);
-                        int colorindex = (int)characters[c].GetComponent<Character>().colorType;
-                        int valuesBricks = Random.Range(0, bricks.Count - 1);
-                        if (stage.transform.GetChild(valuesBricks+3).gameObject.activeSelf == false)
-                        {
+                        //Debug.Log(1);
+                        //int colorindex = (int)characters[c].GetComponent<Character>().colorType;
+                        //int valuesBricks = Random.Range(0, bricks.Count - 1);
+                        //if (stage.transform.GetChild(valuesBricks+3).gameObject.activeSelf == false)
+                        //{
                             
-                            bricks[valuesBricks].GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
-                            bricks[valuesBricks].GetComponent<Brick>().colorType = (ColorType)colorindex;
-                        }
+                        //    bricks[valuesBricks].GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
+                        //    bricks[valuesBricks].GetComponent<Brick>().colorType = (ColorType)colorindex;
+                        //}
 
 
 
@@ -162,6 +176,7 @@ public class Stage : CharacterBrick
                             if (characters[c].GetComponent<Character>().colorType == transform.GetChild(i).GetComponent<Brick>().colorType && stage.transform.GetChild(i).gameObject.activeSelf == false)
                             {
                                 stage.transform.GetChild(i).gameObject.SetActive(true);
+                                break;
                             }
                             else if (characters[c].GetComponent<Character>().colorType != transform.GetChild(i).GetComponent<Brick>().colorType)
                             {

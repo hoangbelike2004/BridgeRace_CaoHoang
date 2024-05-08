@@ -9,33 +9,32 @@ public class Player : Character
     [SerializeField] private float maxSlopeAngle;
     private RaycastHit slopehit;
     
-    [SerializeField] private GameObject _canvasJoystick;
+    //[SerializeField] private GameObject _canvasJoystick;
     private Touch _touch;
-    Vector3 savePosJoyStick,direction;
+    Vector3 direction;
     [SerializeField] private GameObject pictuePlayer;
     [SerializeField] private LayerMask groundLayermask;
     [SerializeField] private LayerMask stairLayermask2;
     public Transform orientation;
     Vector3 movedirection;
-    BoxCollider box;
+    //BoxCollider box;
     Vector3 moveDirection;
     float verticalinput, horizontalinput;
 
     
     // Start is called before the first frame update
-    private void Awake()
-    {
-        _canvasJoystick.SetActive(false);
-    }
-    void Start()
-    {
-        savePosJoyStick = _fxJoystick.transform.position;
-        box = GetComponent<BoxCollider>();
-        colorType = (ColorType)Random.Range(1, colordata.materials.Length - 1);
-        ChangeColor(colorType);
-        //_transformBricks.SetParent(transform);
+    //private void Awake()
+    //{
+    //    _canvasJoystick.SetActive(false);
+    //}
+    //void Start()
+    //{
+
+    //    //box = GetComponent<BoxCollider>();
+       
+    //    //_transformBricks.SetParent(transform);
       
-    }
+    //}
 
     // Update is called once per frame
     void Update()
@@ -49,17 +48,17 @@ public class Player : Character
             _touch = Input.GetTouch(0);
         }
 
-        switch (_touch.phase)
-        {
-            case TouchPhase.Began:
-                _canvasJoystick.SetActive(true);
+        //switch (_touch.phase)
+        //{
+        //    case TouchPhase.Began:
+        //        _canvasJoystick.SetActive(true);
 
-                break;
+        //        break;
             
-            case TouchPhase.Ended:
-                _canvasJoystick.SetActive(false);
-                break;
-        }
+        //    case TouchPhase.Ended:
+        //        _canvasJoystick.SetActive(false);
+        //        break;
+        //}
         if (_fxJoystick.Horizontal != 0 || _fxJoystick.Vertical != 0)
         {
             

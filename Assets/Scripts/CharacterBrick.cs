@@ -6,7 +6,7 @@ public class CharacterBrick : MonoBehaviour
 {
     public ColorType colorType;
     [SerializeField] public Renderer meshRen;
-    
+    [SerializeField] protected Stage stage;
     [SerializeField] protected ColorData colordata;
     protected void ChangeColor(ColorType ecolor)
     {

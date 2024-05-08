@@ -13,9 +13,9 @@ public class Brick : CharacterBrick
         if(other.gameObject.tag == "Player"&& this.colorType == other.gameObject.GetComponent<Character>().colorType)
         {
             transform.gameObject.SetActive(false);
-            int colorindex = Random.Range(0, colordata.materials.Length - 1);
-            meshRen.material = colordata.materials[colorindex];
-            colorType = (ColorType)colorindex;
+            //int colorindex = Random.Range(0, colordata.materials.Length - 1);
+            //meshRen.material = colordata.materials[colorindex];
+            //colorType = (ColorType)colorindex;
             isDiactive = true;
             //if (isDiactive)
             //{

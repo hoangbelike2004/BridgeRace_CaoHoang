@@ -21,6 +21,7 @@ public class StartPoint : MonoBehaviour
             stage.SetCharacter(other.GetComponent<Character>());
             //Debug.Log(other.gameObject.name);
             stage.isStart = true;
+            //Debug.Log(other.gameObject.name);
             Invoke(nameof(ActiveStartPoint), 0.3f);
             
             //others.Add(other.gameObject);

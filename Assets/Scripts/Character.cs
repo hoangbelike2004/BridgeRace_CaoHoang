@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,14 +7,14 @@ public class Character : MonoBehaviour
 {
     [SerializeField] protected ColorData colordata;
 
-    [SerializeField] private Renderer meshRen;
+    [SerializeField] protected Renderer meshRen;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected VariableJoystick _fxJoystick;
     [SerializeField] protected Rigidbody rb;
-    [SerializeField] private GameObject brick;
+    [SerializeField] protected GameObject brick;
     [SerializeField] protected Transform brickChild;
-    private float heightBrick = 0.42f;
-    [SerializeField] private List<GameObject> bricks;
+    protected float heightBrick = 0.42f;
+    [SerializeField] public List<GameObject> bricks;
     protected RaycastHit hit;
     [SerializeField] protected LayerMask _layerBrick;
     //public Transform _transformBricks;
@@ -34,11 +34,21 @@ public class Character : MonoBehaviour
     [SerializeField] private Animator animator;
     private void Start()
     {
+        
         isbridge = true;
         OnInit();
     }
+
+    private void OnApplicationQuit()
+    {
+        colordata.ResetColorData();
+    }
+
     protected virtual void OnInit()
     {
+        colorType = colordata.randomColor();
+
+        ChangeColor(colorType);
 
     }
     protected virtual void Ondespawn()
@@ -76,17 +86,17 @@ public class Character : MonoBehaviour
     {
         if (other.CompareTag("Stage"))
         {
-            stage.SetStage(other.GetComponent<Stage>());
+            stage.SetStage(other.transform.GetComponent<Stage>());
             //Debug.Log(other.gameObject.name);
+            //stage = other.transform.GetComponent<Stage>();
         }
 
-        if (other.CompareTag("BridgeBox"))
-        {
-            
-            stage.checkColorPlayerFromStart = true;
-        }
+        //if (other.CompareTag("BridgeBox"))
+        //{
+        //    stage.checkColorPlayerFromStart = true;
+        //}
 
-        if (other.CompareTag("Stair") && rb.velocity.z > 0)
+        if (other.CompareTag("Stair") && _fxJoystick.Vertical > 0)
         {
             
             
@@ -115,7 +125,7 @@ public class Character : MonoBehaviour
                     brickChild.GetChild(brickChild.childCount - 1).SetParent(null);
 
                     stage.SetCharacter(transform.GetComponent<Character>());
-                    Debug.Log(1);
+                    //Debug.Log(1);
 
                     //stage.SetCharacter(transform.GetComponent<Character>());
 
@@ -188,6 +198,10 @@ public class Character : MonoBehaviour
                 
             }
             
+        }
+        if (other.CompareTag("Finish"))
+        {
+            Time.timeScale = 0;
         }
         
 
