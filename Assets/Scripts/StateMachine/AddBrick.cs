@@ -1,22 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
+using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class PartrolState : IState
+public class AddBrick : IState
 {
-    //int valuesbrick;
-    
     Vector3 distancetobridge;
     bool backtobricks;
     List<Transform> transformsBrick;
-    bool isStart,isContinueMove;
+    bool isStart, isContinueMove;
     public void OnEnter(BotAi botai)
     {
         //valuesbrick = 0;
-        
-        Debug.Log(botai.maxvaluesbick);
+
+        //Debug.Log(botai.maxvaluesbick);
         distancetobridge = Vector3.zero;
         backtobricks = true;
         Debug.Log("Maxvalues: " + botai.maxvaluesbick);
@@ -38,62 +35,51 @@ public class PartrolState : IState
         //Debug.Log("Count: "+transformsBrick.Count);
     }
 
-
-
     public void OnExcute(BotAi botai)
     {
-        if (botai.stage != null&&isStart)
+
+        if (botai.stage != null)
         {
-            
+
             for (int i = 0; i < botai.stage.bricks.Count; i++)
             {
                 if (botai.transform.GetComponent<Character>().colorType == botai.stage.bricks[i].GetComponent<Brick>().colorType)
                 {
                     if (botai.stage.bricks[i].gameObject.activeSelf == true)
                     {
-                        if(botai.bricks.Count < botai.maxvaluesbick &&backtobricks)
+                        if (botai.bricks.Count < botai.maxvaluesbick && backtobricks)
                         {
                             //if(botai.target == Vector3.zero)
                             //{
-                            if(botai.bricks.Count == 0)
+                            if (botai.bricks.Count == 0&&botai.randomtarget)
                             {
-                             botai.target = botai.stage.GetComponent<Stage>().GetPosBrick(botai.GetComponent<Character>().colorType);
+                                //botai.onBridge = false;
+                                botai.target = botai.stage.GetComponent<Stage>().GetPosBrick(botai.GetComponent<Character>().colorType);
+                                botai.randomtarget = false;
                             }
                             else//partrol addbrick
                             {
                                 botai.target = botai.stage.bricks[i].transform.position;
+                                isContinueMove = false;
                             }
-                            
 
-                            
-                            
-                            
-                            if (Vector3.Distance(botai.transform.position, botai.stage.bricks[i].transform.position) < .1f)
-                            {
-                                //valuesbrick++;
-                                Debug.Log(botai.bricks.Count);
-                                botai.target = Vector3.zero;
-                                
-                            }
-                        }
-                        else if(botai.bricks.Count == botai.maxvaluesbick)
-                        {
-                            backtobricks = false;
-                            //Debug.Log("bridge1");
-                           //int a = Random.Range(0, botai.stage.bridges.Count-1);
-                           botai.target = botai._finish.position;
+
+
+
+
+                            //if (Vector3.Distance(botai.transform.position, botai.stage.bricks[i].transform.position) < 1f)
+                            //{
+                            //    //valuesbrick++;
+                            //    Debug.Log(botai.bricks.Count);
+                            //    //botai.target = Vector3.zero;
+                            //    isContinueMove = true;
+                            //}
                             //Debug.Log(botai.target);
                         }
-                        if(botai.bricks.Count == 0&&botai.onBridge)
+                        if (botai.bricks.Count == botai.maxvaluesbick)//move up  bridge
                         {
-                            backtobricks = true;
-                            botai.maxvaluesbick = Random.Range(7, 11);
-                            Debug.Log("Maxvalues: "+botai.maxvaluesbick+botai.name);
-                          
-                            //Debug.Log("numberone: " + botai.target);
+                            botai.ChangeState(new Goupthebridge());
                         }
-                        
-                        
                         //Debug.Log(botai.target);
                         break;
                     }
@@ -103,15 +89,12 @@ public class PartrolState : IState
             //stage = null;
         }
         //GetBrickPos();
-        
+
         botai.MoveBot();
-
     }
-
-
 
     public void OnExit(BotAi botai)
     {
-
+        
     }
 }

@@ -20,7 +20,7 @@ public class IdleState : IState
         if(time > timer)
         {
             botai.ChangeAnim(Character.animationState.idle);
-            botai.ChangeState(new PartrolState());
+            botai.ChangeState(new AddBrick());
             time = 0f;
         }
     }

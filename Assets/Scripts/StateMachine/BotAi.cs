@@ -14,7 +14,7 @@ public class BotAi : Character
     private Vector3 distan;
     public int maxvaluesbick;
     public Transform _finish;
-    public bool onBridge;
+    public bool onBridge, randomtarget;
     private void Update()
     {
         if(CurrentState != null)
@@ -104,22 +104,24 @@ public class BotAi : Character
         {
 
             onBridge = true;
+            randomtarget = true;
         }
 
         if (other.CompareTag("Stair"))
         {
-
+            
 
 
             if (this.colorType == other.gameObject.GetComponent<Stait>().colorType)
             {
-                other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
+                //other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
+                //onBridge = false;
             }
             else if (colorType != other.gameObject.GetComponent<Stait>().colorType)//!= colorType
             {
 
 
-                other.gameObject.GetComponent<Stait>().wallStait.SetActive(true);
+                //other.gameObject.GetComponent<Stait>().wallStait.SetActive(true);
                 if (bricks.Count != 0)//when remove brick
                 {
                     //activeBrickWhenRemove = true;
@@ -127,14 +129,15 @@ public class BotAi : Character
                     other.gameObject.GetComponent<Stait>().colorType = this.colorType;
                     other.gameObject.GetComponent<Stait>().meshRen.material = meshRen.material;
 
-                    other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
-                    isbridge = false;
+                    //other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
+                    //isbridge = false;
                     // other.gameObject.tag = "Untagged";
                     bricks.Remove(bricks[bricks.Count - 1]);
                     brickChild.GetChild(brickChild.childCount - 1).gameObject.SetActive(false);
                     brickChild.GetChild(brickChild.childCount - 1).SetParent(null);
 
                     stage.SetCharacter(transform.GetComponent<Character>());
+                   
                     //Debug.Log(1);
 
                     //stage.SetCharacter(transform.GetComponent<Character>());
@@ -243,14 +246,19 @@ public class BotAi : Character
         {
             ///other.gameObject.tag = "Stair";
             //Debug.Log("chay xuong deactive wall");
-            other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
+            //other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
 
 
         }
         if (other.CompareTag("BridgeBox"))
         {
 
-            onBridge = false;
+            onBridge = true;
         }
+        //if (other.CompareTag("BridgeBox"))
+        //{
+
+
+        //}
     }
 }

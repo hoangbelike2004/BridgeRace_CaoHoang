@@ -118,7 +118,7 @@ public class Character : MonoBehaviour
                     other.gameObject.GetComponent<Stait>().meshRen.material = meshRen.material;
                     
                     other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
-                    isbridge = false;
+                   
                    // other.gameObject.tag = "Untagged";
                     bricks.Remove(bricks[bricks.Count - 1]);
                     brickChild.GetChild(brickChild.childCount-1).gameObject.SetActive(false);
@@ -238,6 +238,7 @@ public class Character : MonoBehaviour
             ///other.gameObject.tag = "Stair";
             //Debug.Log("chay xuong deactive wall");
             other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
+            
 
 
         }
