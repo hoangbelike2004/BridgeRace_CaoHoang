@@ -27,6 +27,19 @@ public class StartPoint : MonoBehaviour
             //others.Add(other.gameObject);
 
         }
+        if (other.CompareTag("Bot"))
+        {
+            valueColorPlayerFromStart = (int)other.gameObject.GetComponent<Character>().colorType;
+            //_ActiveBrickEvent?.Invoke(valueColorPlayerFromStart.3f);
+            stage.SetCharacter(other.GetComponent<Character>());
+            //Debug.Log(other.gameObject.name);
+            stage.isStart = true;
+            //Debug.Log(other.gameObject.name);
+            Invoke(nameof(ActiveStartPoint), 0.3f);
+
+            //others.Add(other.gameObject);
+
+        }
     }
 
     private void ActiveStartPoint()

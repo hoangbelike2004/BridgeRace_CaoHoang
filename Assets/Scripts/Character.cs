@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -87,7 +85,7 @@ public class Character : MonoBehaviour
         if (other.CompareTag("Stage"))
         {
             stage.SetStage(other.transform.GetComponent<Stage>());
-            //Debug.Log(other.gameObject.name);
+            Debug.Log("other.gameObject.name");
             //stage = other.transform.GetComponent<Stage>();
         }
 

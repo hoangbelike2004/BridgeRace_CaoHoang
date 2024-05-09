@@ -95,8 +95,8 @@ public class BotAi : Character
     {
         if (other.CompareTag("Stage"))
         {
-            //stage.SetStage(other.transform.GetComponent<Stage>());
-            //Debug.Log(other.gameObject.name);
+           // stage.SetStage(other.transform.GetComponent<Stage>());
+            Debug.Log(other.gameObject.name);
             stage = other.transform.GetComponent<Stage>();
         }
 
