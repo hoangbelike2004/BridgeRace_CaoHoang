@@ -1493,12 +1493,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830081173}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.418213, y: -10.297035, z: 21.014965}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.044626, y: 34124.457, z: 39.014965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1994212194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &896885699
 GameObject:
@@ -4160,7 +4160,8 @@ Transform:
   m_LocalPosition: {x: 4.6264133, y: -34134.754, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 830081174}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1994212195
@@ -4179,7 +4180,7 @@ MonoBehaviour:
   - prefab: {fileID: 2073500329997309519, guid: 79a58327dc1e07f43983ca3947e60fc6, type: 3}
     parent: {fileID: 830081174}
     pooltype: 0
-    size: 50
+    size: 30
 --- !u!1 &2001025665
 GameObject:
   m_ObjectHideFlags: 0
@@ -4390,4 +4391,3 @@ SceneRoots:
   - {fileID: 172275815}
   - {fileID: 311637034}
   - {fileID: 1994212194}
-  - {fileID: 830081174}

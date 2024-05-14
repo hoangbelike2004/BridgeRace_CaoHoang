@@ -70,7 +70,7 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void PLayGameLevel1()
     {
-        Debug.Log(valuesLevel);
+       // Debug.Log(valuesLevel);
         _newGameobject =  Instantiate(_Listlevel[valuesLevel]);
         _transformFinish = _newGameobject.transform.Find("FinishBox");
         SetPosStartPoint();
@@ -118,7 +118,7 @@ public class LevelManager : Singleton<LevelManager>
         {
             _listStartPointLevel.Add(_newGameobject.gameObject.GetComponent<Map>()._listStartPoint[i]);
             //Debug.Log(_newGameobject.name);
-            Debug.Log(_newGameobject.gameObject.GetComponent<Map>()._listStartPoint[i].position);
+            //Debug.Log(_newGameobject.gameObject.GetComponent<Map>()._listStartPoint[i].position);
 
         }
     }
