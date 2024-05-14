@@ -98,7 +98,11 @@ public class Stage : CharacterBrick
 
         }
         int a = Random.Range(0, transformsBrick.Count);
-        return transformsBrick[a];
+        Debug.Log("Ramdom: "+a);
+        Vector3 newpos = transformsBrick[a];
+        transformsBrick.Clear();
+        return newpos;
+        
     }
     //private void ActiveBrick(int value)
     //{
@@ -179,8 +183,8 @@ public class Stage : CharacterBrick
                         
                         
 
-                            bricks[valuesBricks].GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
-                            bricks[valuesBricks].GetComponent<Brick>().colorType = (ColorType)colorindex;
+                        bricks[valuesBricks].GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
+                        bricks[valuesBricks].GetComponent<Brick>().colorType = (ColorType)colorindex;
                         
 
 
@@ -190,20 +194,23 @@ public class Stage : CharacterBrick
                         for (int i = 3; i < bricks.Count; i++)
                         {
 
-                            if (characters[c].GetComponent<Character>().colorType == transform.GetChild(i).GetComponent<Brick>().colorType && stage.transform.GetChild(i).gameObject.activeSelf == false)
+                            if (characters[c].GetComponent<Character>().colorType == transform.GetChild(i).GetComponent<Brick>().colorType && transform.GetChild(i).gameObject.activeSelf == false)
                             {
-                                stage.transform.GetChild(i).gameObject.SetActive(true);
+                                transform.GetChild(i).gameObject.SetActive(true);
+                                Debug.Log(1);
                                 break;
                             }
                             else if (characters[c].GetComponent<Character>().colorType != transform.GetChild(i).GetComponent<Brick>().colorType)
                             {
-                                stage.transform.GetChild(i).gameObject.SetActive(false);
+                                transform.GetChild(i).gameObject.SetActive(false);
                             }
                         }
 
                         characters[c] = null;
+                        //break;
                         //checkColorPlayerFromStart = false;
                     }
+                    
                     //Debug.Log(characters.Count);
                     
                     

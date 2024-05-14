@@ -14,8 +14,8 @@ public class AddBrick : IState
         //valuesbrick = 0;
 
         //Debug.Log(botai.maxvaluesbick);
-        //distancetobridge = Vector3.zero;
-        //backtobricks = true;
+        distancetobridge = Vector3.zero;
+        backtobricks = true;
         //Debug.Log("Maxvalues: " + botai.maxvaluesbick);
         Vector3 newPos = botai.stage.GetComponent<Stage>().GetPosBrick(botai.GetComponent<Character>().colorType);
         botai.target = newPos;
@@ -57,7 +57,7 @@ public class AddBrick : IState
                                 botai.target = botai.stage.GetComponent<Stage>().GetPosBrick(botai.GetComponent<Character>().colorType);
                                 botai.randomtarget = false;
                             }
-                            else//partrol addbrick
+                            else if(botai.bricks.Count != 0)//partrol addbrick
                             {
                                 botai.target = botai.stage.bricks[i].transform.position;
                                 isContinueMove = false;

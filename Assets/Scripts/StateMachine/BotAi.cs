@@ -33,8 +33,8 @@ public class BotAi : Character
             _NavMeshAgent.enabled = false;
             CurrentState = null;
             ClearBrick();
-            GameController.Instance.isFinish = false;
-
+            ChangeAnim(animationState.idle);
+            
         }
         //if(stage != null)
         //{
@@ -52,7 +52,7 @@ public class BotAi : Character
         //                Debug.Log(target);
         //                break;
         //            }
-
+                   
         //        }
         //    }
         //    //stage = null;
@@ -78,24 +78,34 @@ public class BotAi : Character
     {
         
         _NavMeshAgent.SetDestination(target);
-        Debug.Log(target);
+        //Debug.Log(target);
         ChangeAnim(animationState.run);
+        
+        
+    }
+    public void GetBrickPos()
+    {
+        if(target == Vector3.zero)
+        {
+            int i = Random.Range(0, valuesbrick.Count);
+            target = stage.bricks[valuesbrick[i]].transform.position;
+        }
         
         
     }
     protected override void OnInit()
     {
-        ChangeState(new IdleState());
         _finish = LevelManager.Instance._transformFinish;
-        _NavMeshAgent.enabled = true;
         
         base.OnInit();
         //distan = Vector3.zero;
         // _NavMeshAgent.isStopped = true;
-        
+        _NavMeshAgent.enabled = true;
+        GameController.Instance.isFinish = false;
         _NavMeshAgent.speed = moveSpeed;
+  
         maxvaluesbick = Random.Range(7, 11);
-       
+        ChangeState(new IdleState());
         //Debug.Log(_transforms.Count);
     }
     protected override void Ondespawn()

@@ -243,8 +243,9 @@ public class Player : Character
 
                     // other.gameObject.tag = "Untagged";
                     bricks.Remove(bricks[bricks.Count - 1]);
-                    brickChild.GetChild(brickChild.childCount - 1).gameObject.SetActive(false);
-                    brickChild.GetChild(brickChild.childCount - 1).SetParent(null);
+                   GameObject brickRelease = brickChild.GetChild(brickChild.childCount - 1).gameObject;
+                    ObjectPooling.Instance.ReturnToPool(PoolType.brick, brickRelease);
+                    //brickChild.GetChild(brickChild.childCount - 1).SetParent(null);
 
                     stage.SetCharacter(transform.GetComponent<Character>());
                     //Debug.Log(1);
@@ -308,15 +309,16 @@ public class Player : Character
             if (this.colorType == other.gameObject.GetComponent<Brick>().colorType)
             {
                 //Debug.Log(this.meshRen.material);
-                GameObject brickPrefab = Instantiate(brick);
-                brickPrefab.tag = "Untagged";
-                brickPrefab.GetComponent<Brick>().colorType = this.colorType;
+                GameObject brickGameobject = ObjectPooling.Instance.SpawnGameUnitFromPool(PoolType.brick, Vector3.zero, Quaternion.identity);
+                //GameObject brickPrefab = Instantiate(brick);
+                brickGameobject.tag = "Untagged";
+                brickGameobject.GetComponent<Brick>().colorType = this.colorType;
 
-                brickPrefab.GetComponent<MeshRenderer>().material = this.meshRen.material;
-                bricks.Add(brickPrefab);
-                brickPrefab.transform.SetParent(brickChild);
-                brickPrefab.transform.localPosition = new Vector3(0, 1 + heightBrick * bricks.Count, -.6f);
-                brickPrefab.transform.localRotation = Quaternion.Euler(0, -90, 0);
+                brickGameobject.GetComponent<MeshRenderer>().material = this.meshRen.material;
+                bricks.Add(brickGameobject);
+                brickGameobject.transform.SetParent(brickChild);
+                brickGameobject.transform.localPosition = new Vector3(0, 1 + heightBrick * bricks.Count, -.6f);
+                brickGameobject.transform.localRotation = Quaternion.Euler(0, -90, 0);
 
             }
 

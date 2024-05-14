@@ -277,7 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colordata: {fileID: 11400000, guid: 029ce389547ae944e983b33e87a0d944, type: 2}
   meshRen: {fileID: 932609063}
-  moveSpeed: 20
+  moveSpeed: 10
   _fxJoystick: {fileID: 822252526}
   rb: {fileID: 83919349}
   brick: {fileID: 2073500329997309519, guid: 79a58327dc1e07f43983ca3947e60fc6, type: 3}
@@ -1469,6 +1469,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42844a4fccbd54746b90cade4ff70f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &830081173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 830081174}
+  m_Layer: 0
+  m_Name: Bricks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &830081174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830081173}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.418213, y: -10.297035, z: 21.014965}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &896885699
 GameObject:
   m_ObjectHideFlags: 0
@@ -4109,6 +4140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1994212194}
+  - component: {fileID: 1994212195}
   m_Layer: 0
   m_Name: PoolingObject
   m_TagString: Untagged
@@ -4131,6 +4163,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1994212195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994212193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec220cc759af71f43a28f508b6436492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - prefab: {fileID: 2073500329997309519, guid: 79a58327dc1e07f43983ca3947e60fc6, type: 3}
+    parent: {fileID: 830081174}
+    pooltype: 0
+    size: 50
 --- !u!1 &2001025665
 GameObject:
   m_ObjectHideFlags: 0
@@ -4305,7 +4354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2365923460025067033, guid: 945de82146e1c2e4c9b67bc0a2f8a7b5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2771277861592070137, guid: 945de82146e1c2e4c9b67bc0a2f8a7b5, type: 3}
       propertyPath: m_Speed
@@ -4317,7 +4366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4253372765522337639, guid: 945de82146e1c2e4c9b67bc0a2f8a7b5, type: 3}
       propertyPath: moveSpeed
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4778568176370924109, guid: 945de82146e1c2e4c9b67bc0a2f8a7b5, type: 3}
       propertyPath: m_UseGravity
@@ -4341,3 +4390,4 @@ SceneRoots:
   - {fileID: 172275815}
   - {fileID: 311637034}
   - {fileID: 1994212194}
+  - {fileID: 830081174}
