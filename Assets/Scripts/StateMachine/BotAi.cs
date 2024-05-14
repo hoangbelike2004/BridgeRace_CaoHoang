@@ -15,11 +15,26 @@ public class BotAi : Character
     public int maxvaluesbick;
     public Transform _finish;
     public bool onBridge, randomtarget;
+    public delegate void DelegateLose();
+    public static DelegateLose LoseEvent;
+
     private void Update()
     {
+        
         if(CurrentState != null)
         {
             CurrentState.OnExcute(this);
+        }
+
+        if (GameController.Instance.isFinish)
+        {
+            Debug.Log("run");
+            //_NavMeshAgent.ResetPath();
+            _NavMeshAgent.enabled = false;
+            CurrentState = null;
+            ClearBrick();
+            GameController.Instance.isFinish = false;
+
         }
         //if(stage != null)
         //{
@@ -37,7 +52,7 @@ public class BotAi : Character
         //                Debug.Log(target);
         //                break;
         //            }
-                   
+
         //        }
         //    }
         //    //stage = null;
@@ -63,28 +78,24 @@ public class BotAi : Character
     {
         
         _NavMeshAgent.SetDestination(target);
+        Debug.Log(target);
         ChangeAnim(animationState.run);
-        
-        
-    }
-    public void GetBrickPos()
-    {
-        if(target == Vector3.zero)
-        {
-            int i = Random.Range(0, valuesbrick.Count);
-            target = stage.bricks[valuesbrick[i]].transform.position;
-        }
         
         
     }
     protected override void OnInit()
     {
-
+        ChangeState(new IdleState());
+        _finish = LevelManager.Instance._transformFinish;
+        _NavMeshAgent.enabled = true;
+        
         base.OnInit();
-        distan = Vector3.zero;
+        //distan = Vector3.zero;
+        // _NavMeshAgent.isStopped = true;
+        
         _NavMeshAgent.speed = moveSpeed;
         maxvaluesbick = Random.Range(7, 11);
-        ChangeState(new IdleState());
+       
         //Debug.Log(_transforms.Count);
     }
     protected override void Ondespawn()
@@ -96,7 +107,7 @@ public class BotAi : Character
         if (other.CompareTag("Stage"))
         {
            // stage.SetStage(other.transform.GetComponent<Stage>());
-            Debug.Log(other.gameObject.name);
+            //Debug.Log(other.gameObject.name);
             stage = other.transform.GetComponent<Stage>();
         }
 
@@ -225,7 +236,21 @@ public class BotAi : Character
         //        StartCoroutine(ActiveBrick(other.gameObject));
         //    }
         //}
+        if (other.CompareTag("Finish"))
+        {
+            ChangeAnim(animationState.idle);
+            _NavMeshAgent.enabled = false;
+            //_NavMeshAgent.isStopped = true;
+            ClearBrick();
+            CurrentState = null;
+            Invoke(nameof(InvokeLose), 1f);
+            //target = Vector3.zero;
+        }
 
+    }
+    private void InvokeLose()
+    {
+        LoseEvent?.Invoke();
     }
 
     //IEnumerator ActiveBrick(GameObject gameobject)
@@ -261,4 +286,17 @@ public class BotAi : Character
 
         //}
     }
+    //private void ResetBot()
+    //{
+    //    _NavMeshAgent.enabled = false;
+    //}
+    //private void OnEnable()
+    //{
+    //    GameController.WinEvent += ResetBot;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    GameController.WinEvent -= ResetBot;
+    //}
 }

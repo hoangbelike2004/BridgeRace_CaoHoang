@@ -21,6 +21,8 @@ public class Stage : CharacterBrick
     //[SerializeField] private GameObject BrickStage;
     public bool isStart;
 
+    
+
     public void SetCharacter(Character character)
     {
         //this.character = character;
@@ -122,6 +124,21 @@ public class Stage : CharacterBrick
     //    SetBrick();
     //    Invoke(nameof(ActiveBrick), 1f);
     //}
+    //private void OnEnable()
+    //{
+    //    UIManagerSystem.LoseGameEvent += ActiveBrickinStageAfterRePlay;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    UIManagerSystem.LoseGameEvent -= ActiveBrickinStageAfterRePlay;
+    //}
+    //private void ActiveBrickinStageAfterRePlay()
+    //{
+    //    for (int i = 0; i < bricks.Count; i++) {
+    //        bricks[i].gameObject.SetActive(false);
+    //    }
+    //}
     private IEnumerator Start()
     {
         SetBrick();
@@ -157,14 +174,14 @@ public class Stage : CharacterBrick
                     if (checkColorPlayerFromStart && characters[c] != null)
                     {
                         //Debug.Log(1);
-                        //int colorindex = (int)characters[c].GetComponent<Character>().colorType;
-                        //int valuesBricks = Random.Range(0, bricks.Count - 1);
-                        //if (stage.transform.GetChild(valuesBricks+3).gameObject.activeSelf == false)
-                        //{
-                            
-                        //    bricks[valuesBricks].GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
-                        //    bricks[valuesBricks].GetComponent<Brick>().colorType = (ColorType)colorindex;
-                        //}
+                        int colorindex = (int)characters[c].GetComponent<Character>().colorType;
+                        int valuesBricks = Random.Range(0, bricks.Count - 1);
+                        
+                        
+
+                            bricks[valuesBricks].GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
+                            bricks[valuesBricks].GetComponent<Brick>().colorType = (ColorType)colorindex;
+                        
 
 
 

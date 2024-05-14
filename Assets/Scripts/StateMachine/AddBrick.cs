@@ -14,9 +14,9 @@ public class AddBrick : IState
         //valuesbrick = 0;
 
         //Debug.Log(botai.maxvaluesbick);
-        distancetobridge = Vector3.zero;
-        backtobricks = true;
-        Debug.Log("Maxvalues: " + botai.maxvaluesbick);
+        //distancetobridge = Vector3.zero;
+        //backtobricks = true;
+        //Debug.Log("Maxvalues: " + botai.maxvaluesbick);
         Vector3 newPos = botai.stage.GetComponent<Stage>().GetPosBrick(botai.GetComponent<Character>().colorType);
         botai.target = newPos;
         if (botai.target == newPos)

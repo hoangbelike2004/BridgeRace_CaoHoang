@@ -22,7 +22,7 @@ public class StartPoint : MonoBehaviour
             //Debug.Log(other.gameObject.name);
             stage.isStart = true;
             //Debug.Log(other.gameObject.name);
-            Invoke(nameof(ActiveStartPoint), 0.3f);
+            Invoke(nameof(DeActiveStartPoint), 0.3f);
             
             //others.Add(other.gameObject);
 
@@ -35,15 +35,28 @@ public class StartPoint : MonoBehaviour
             //Debug.Log(other.gameObject.name);
             stage.isStart = true;
             //Debug.Log(other.gameObject.name);
-            Invoke(nameof(ActiveStartPoint), 0.3f);
+            Invoke(nameof(DeActiveStartPoint), 0.3f);
 
             //others.Add(other.gameObject);
 
         }
     }
 
-    private void ActiveStartPoint()
+    private void DeActiveStartPoint()
     {
         transform.gameObject.SetActive(false);
     }
+    //private void OnEnable()
+    //{
+    //    UIManagerSystem.LoseGameEvent += ActiveStartPoint;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    UIManagerSystem.LoseGameEvent -= ActiveStartPoint;
+    //}
+    //private void ActiveStartPoint()
+    //{
+    //    transform.gameObject.SetActive(true);
+    //}
 }

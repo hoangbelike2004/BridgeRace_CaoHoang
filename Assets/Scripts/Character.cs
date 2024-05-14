@@ -35,11 +35,13 @@ public class Character : MonoBehaviour
         
         isbridge = true;
         OnInit();
+       
     }
 
     private void OnApplicationQuit()
     {
         colordata.ResetColorData();
+        LevelManager.Instance.ResetTransform();
     }
 
     protected virtual void OnInit()
@@ -47,6 +49,7 @@ public class Character : MonoBehaviour
         colorType = colordata.randomColor();
 
         ChangeColor(colorType);
+
 
     }
     protected virtual void Ondespawn()
@@ -76,169 +79,29 @@ public class Character : MonoBehaviour
     }
 
 
-    public void ClearBrick() { 
+    protected void ClearBrick() {
 
-
+        for (int i = brickChild.childCount-1; i >= 0; i--) {
+           GameObject newGame = brickChild.transform.GetChild(i).gameObject;
+            newGame.SetActive(false);
+            newGame.transform.SetParent(null);
+        }
+        bricks.Clear();
     }
-    private void OnTriggerEnter(Collider other)
+    public void SetTransform()
     {
-        if (other.CompareTag("Stage"))
-        {
-            stage.SetStage(other.transform.GetComponent<Stage>());
-            Debug.Log("other.gameObject.name");
-            //stage = other.transform.GetComponent<Stage>();
-        }
-
-        //if (other.CompareTag("BridgeBox"))
-        //{
-        //    stage.checkColorPlayerFromStart = true;
-        //}
-
-        if (other.CompareTag("Stair") && _fxJoystick.Vertical > 0)
-        {
-            
-            
-
-            if (this.colorType == other.gameObject.GetComponent<Stait>().colorType)
-            {
-                other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
-            }
-            else if(colorType != other.gameObject.GetComponent<Stait>().colorType)//!= colorType
-            {
-                
-               
-               other.gameObject.GetComponent<Stait>().wallStait.SetActive(true);
-                if (bricks.Count != 0)//when remove brick
-                {
-                    //activeBrickWhenRemove = true;
-                    int brickcount = bricks.Count;
-                    other.gameObject.GetComponent<Stait>().colorType = this.colorType;
-                    other.gameObject.GetComponent<Stait>().meshRen.material = meshRen.material;
-                    
-                    other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
-                   
-                   // other.gameObject.tag = "Untagged";
-                    bricks.Remove(bricks[bricks.Count - 1]);
-                    brickChild.GetChild(brickChild.childCount-1).gameObject.SetActive(false);
-                    brickChild.GetChild(brickChild.childCount - 1).SetParent(null);
-
-                    stage.SetCharacter(transform.GetComponent<Character>());
-                    //Debug.Log(1);
-
-                    //stage.SetCharacter(transform.GetComponent<Character>());
-
-                }
-               
-                //else
-                //{
-                //    //activeBrickWhenRemove = false;
-                //    other.gameObject.GetComponent<Stait>().wallStait.SetActive(true);
-                //}
-            }
-            //if(bricks.Count != 0|| this.colorType == other.gameObject.GetComponent<Stait>().colorType)
-            //{
-            //    //Debug.Log(other.gameObject.GetComponent<Stait>().colorType);
-            //    if(this.colorType != other.gameObject.GetComponent<Stait>().colorType)
-            //    {
-            //        //other.GetComponent<Stait>().meshRen.enabled = true;
-            //       other.gameObject.GetComponent<Stait>().colorType = this.colorType;
-
-            //        other.gameObject.GetComponent<MeshRenderer>().material = meshRen.material;
-            //        bricks.Remove(bricks[bricks.Count-1]);
-                    
-            //    }
-               
-
-            //}
-            //if(bricks.Count == 0&& this.colorType != other.gameObject.GetComponent<Stait>().colorType)
-            //{
-            //    other.gameObject.GetComponent<Stait>().wallStait.SetActive(true);
-            //    isbridge =false;
-            //}
-            
-            Vector3 newpos = transform.position;
-            //Debug.Log("len");
-
-
-            newpos.y += 0.15f;
-
-            transform.position = newpos;
-
-            //srb.AddForce(Vector3.up * 50f, ForceMode.Force);
-
-        }
-        else if (other.CompareTag("Stair")&&_fxJoystick.Vertical<0)
-        {
-            
-            
-           
-            Vector3 newpos = transform.position;
-            //Debug.Log("len");
-
-            //newpos.y -= 0.15f;
-
-            transform.position = newpos;
-        }
-        if (other.CompareTag("Brick"))
-        {
-            if(this.colorType == other.gameObject.GetComponent<Brick>().colorType)
-            {
-                //Debug.Log(this.meshRen.material);
-                GameObject brickPrefab = Instantiate(brick);
-                brickPrefab.tag = "Untagged";
-                brickPrefab.GetComponent<Brick>().colorType = this.colorType;
-               
-                brickPrefab.GetComponent<MeshRenderer>().material = this.meshRen.material;
-                bricks.Add(brickPrefab);
-                brickPrefab.transform.SetParent(brickChild);
-                brickPrefab.transform.localPosition = new Vector3(0, 1 + heightBrick * bricks.Count,-.6f);
-                brickPrefab.transform.localRotation = Quaternion.Euler(0,-90,0);
-                
-            }
-            
-        }
-        if (other.CompareTag("Finish"))
-        {
-            Time.timeScale = 0;
-        }
+        transform.position = LevelManager.Instance.Randomtransform().position;
+        OnInit();
         
-
-
-        //if (other.gameObject.tag == "Brick" && this.colorType == other.gameObject.GetComponent<Brick>().colorType)
-        //{
-        //    other.gameObject.SetActive(false);
-        //    isDiactive = true;
-        //    if (isDiactive)
-        //    {
-        //        Debug.Log("Active");
-        //        StartCoroutine(ActiveBrick(other.gameObject));
-        //    }
-        //}
-
     }
 
-    //IEnumerator ActiveBrick(GameObject gameobject)
-    //{
-    //    yield return new WaitForSeconds(timeActive);
-    //    //Debug.Log(isDiactive);
-    //    //yield return new WaitForSeconds(timeActive);
-    //    int colorindex = Random.Range(1, colordata.materials.Length - 1);
-    //    gameobject.GetComponent<Brick>().meshRen.material = colordata.materials[colorindex];
-    //    colorType = (ColorType)colorindex;
-    //    gameobject.SetActive(true);
-    //    isDiactive = false;
-
-    //}
-    private void OnTriggerExit(Collider other)
+    private void OnEnable()
     {
-        if (other.CompareTag("Stair") && _fxJoystick.Vertical < 0)
-        {
-            ///other.gameObject.tag = "Stair";
-            //Debug.Log("chay xuong deactive wall");
-            other.gameObject.GetComponent<Stait>().wallStait.SetActive(false);
-            
-
-
-        }
+        LevelManager.GetTransformEvent += SetTransform;
     }
+    private void OnDisable()
+    {
+        LevelManager.GetTransformEvent -= SetTransform;
+    }
+
 }

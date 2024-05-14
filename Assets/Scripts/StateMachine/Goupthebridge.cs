@@ -13,7 +13,7 @@ public class Goupthebridge : IState
     bool isStart,isContinueMove;
     public void OnEnter(BotAi botai)
     {
-       
+       //botai.target = botai._finish.position;
     }
 
 
